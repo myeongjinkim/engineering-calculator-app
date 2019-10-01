@@ -74,7 +74,7 @@
                 android:id="@+id/button24"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="pressOperButton"
+                android:onClick="pressDenominatorButton"
                 android:text="1/x" />
         </TableRow>
 
