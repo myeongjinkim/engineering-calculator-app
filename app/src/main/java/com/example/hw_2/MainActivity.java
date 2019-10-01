@@ -99,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
             operate(a[1],num,num2);
         }
     }
+    public void pressPercentButton(View view) {
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            String sNum2 = (String) this.number.getText();
+            BigDecimal num2 = new BigDecimal(sNum2);
+            BigDecimal num = new BigDecimal(100);
+            sNum2 = checkBigDecimal(num2.divide(num));
+            System.out.println(sNum2);
+            this.number.setText(sNum2);
+        }
+    }
     public void operate(String col, BigDecimal num, BigDecimal num2) {
         String result="";
         BigDecimal chkPoint;
@@ -106,10 +116,6 @@ public class MainActivity extends AppCompatActivity {
             result = checkBigDecimal(num.add(num2));
         } else if (col.equals("-")) {
             result = checkBigDecimal(num.subtract(num2));
-            System.out.println(num);
-            System.out.println(num2);
-            System.out.println(num.subtract(num2));
-            System.out.println(result);
         } else if (col.equals("*")) {
             result = checkBigDecimal(num.multiply(num2));
         } else if (col.equals("/")){
