@@ -95,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
         if(text.equals("")==false){
             BigDecimal num2 = new BigDecimal(sNum2);
             String[] a = text.split(" ");
+            System.out.println(num2);
             BigDecimal num = new BigDecimal(a[0]);
             operate(a[1],num,num2);
         }
@@ -126,7 +127,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (col.equals("*")) {
             result = checkBigDecimal(num.multiply(num2));
         } else if (col.equals("/")){
-            if(num2.intValue()!=0){
+            System.out.println(num2.intValue());
+            BigDecimal zero = new BigDecimal(0);
+            if(num2!=zero){
                 result = checkBigDecimal(num.divide(num2));
             }
             else{
