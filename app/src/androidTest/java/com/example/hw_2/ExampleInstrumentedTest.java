@@ -1,4 +1,4 @@
-package com.example.hw_1;
+package com.example.hw_2;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.hw_1", appContext.getPackageName());
+        assertEquals("com.example.hw_2", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.example.hw_1;
+package com.example.hw_2;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Queue;
+
 
 public class MainActivity extends AppCompatActivity {
     private TextView number;
