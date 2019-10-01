@@ -123,6 +123,15 @@ public class MainActivity extends AppCompatActivity {
             this.number.setText(sNum2);
         }
     }
+    public void pressSquareButton(View view) {
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            String sNum2 = (String) this.number.getText();
+            BigDecimal num2 = new BigDecimal(sNum2);
+            num2 = num2.pow(2);
+            sNum2 = checkBigDecimal(num2);
+            this.number.setText(sNum2);
+        }
+    }
     public void operate(String col, BigDecimal num, BigDecimal num2) {
         String result="";
         BigDecimal chkPoint;
