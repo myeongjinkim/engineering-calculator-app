@@ -100,13 +100,20 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void pressPercentButton(View view) {
+
+        String text = (String) this.progress.getText();
+        String[] a = new String[2];
+        a = text.split(" ");
         if (this.number.getText().equals(divideErrorMsg)==false) {
-            String sNum2 = (String) this.number.getText();
-            BigDecimal num2 = new BigDecimal(sNum2);
-            BigDecimal num = new BigDecimal(100);
-            sNum2 = checkBigDecimal(num2.divide(num));
-            System.out.println(sNum2);
-            this.number.setText(sNum2);
+            if (a.length==2&&(a[1].equals("*")==true||a[1].equals("/")==true)) {
+                System.out.println(3);
+                String sNum2 = (String) this.number.getText();
+                BigDecimal num2 = new BigDecimal(sNum2);
+                BigDecimal num = new BigDecimal(100);
+                sNum2 = checkBigDecimal(num2.divide(num));
+                System.out.println(sNum2);
+                this.number.setText(sNum2);
+            }
         }
     }
     public void operate(String col, BigDecimal num, BigDecimal num2) {
