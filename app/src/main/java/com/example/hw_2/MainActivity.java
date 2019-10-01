@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         if(text.equals("")==false){
             BigDecimal num2 = new BigDecimal(sNum2);
             String[] a = text.split(" ");
-            System.out.println(num2);
             BigDecimal num = new BigDecimal(a[0]);
             operate(a[1],num,num2);
         }
@@ -107,14 +106,21 @@ public class MainActivity extends AppCompatActivity {
         a = text.split(" ");
         if (this.number.getText().equals(divideErrorMsg)==false) {
             if (a.length==2&&(a[1].equals("*")==true||a[1].equals("/")==true)) {
-                System.out.println(3);
                 String sNum2 = (String) this.number.getText();
                 BigDecimal num2 = new BigDecimal(sNum2);
                 BigDecimal num = new BigDecimal(100);
                 sNum2 = checkBigDecimal(num2.divide(num));
-                System.out.println(sNum2);
                 this.number.setText(sNum2);
             }
+        }
+    }
+    public void pressSqrtButton(View view) {
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            String sNum2 = (String) this.number.getText();
+            BigDecimal num2 = new BigDecimal(sNum2);
+            num2 = BigDecimal.valueOf(Math.sqrt(num2.doubleValue()));
+            sNum2 = checkBigDecimal(num2);
+            this.number.setText(sNum2);
         }
     }
     public void operate(String col, BigDecimal num, BigDecimal num2) {
@@ -127,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
         } else if (col.equals("*")) {
             result = checkBigDecimal(num.multiply(num2));
         } else if (col.equals("/")){
-            System.out.println(num2.intValue());
             BigDecimal zero = new BigDecimal(0);
             if(num2!=zero){
                 result = checkBigDecimal(num.divide(num2));
