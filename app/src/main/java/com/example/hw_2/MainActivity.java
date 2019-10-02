@@ -153,11 +153,12 @@ public class MainActivity extends AppCompatActivity {
             result = checkBigDecimal(num.multiply(num2));
         } else if (col.equals("/")){
             BigDecimal zero = new BigDecimal(0);
-            if(num2!=zero){
+            if(num2.compareTo(zero)!=0){
                 result = checkBigDecimal(num.divide(num2));
             }
             else{
                 result=divideErrorMsg;
+                System.out.println(1);
             }
         }
         this.number.setText(result);
