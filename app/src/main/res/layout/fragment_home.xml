@@ -40,7 +40,6 @@
                 android:layout_height="match_parent"
                 android:layout_span="4"
                 android:gravity="right|center_vertical"
-                android:text="0"
                 android:textSize="30sp" />
         </TableRow>
 
