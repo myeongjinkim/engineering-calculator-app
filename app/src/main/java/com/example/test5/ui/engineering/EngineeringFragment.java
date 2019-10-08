@@ -16,7 +16,7 @@ public class EngineeringFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_engineer, container, false);
 
         return rootView;
     }
