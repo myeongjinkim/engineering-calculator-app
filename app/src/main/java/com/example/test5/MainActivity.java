@@ -2,11 +2,14 @@ package com.example.test5;
 
 import android.os.Bundle;
 
+import com.example.test5.ui.home.HomeFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import android.view.View;
 
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,37 +23,39 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
-
+    HomeFragment hf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send)
+                R.id.nav_home, R.id.nav_gallery)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        hf = new HomeFragment();
+        FragmentManager mFragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.home,hf).commit();
     }
 
     @Override
@@ -66,4 +71,40 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+    public void pressNumButton(View view) {
+        hf.pressNumButton(view);
+    }
+    public void pressOperButton(View view) {
+
+    }
+    public void pressPointButton(View view) {
+
+    }
+    public void pressSignButton(View view) {
+
+    }
+    public void pressRemoveButton(View view) {
+
+    }
+    public void pressColButton(View view) {
+
+    }
+    public void pressPercentButton(View view) {
+
+
+    }
+    public void pressSqrtButton(View view) {
+
+    }
+    public void pressSquareButton(View view) {
+
+    }
+    public void pressDenominatorButton(View view) {
+
+    }
+
+
+
 }

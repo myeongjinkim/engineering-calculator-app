@@ -1,16 +1,15 @@
 package com.example.test5.ui.home;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.test5.R;
@@ -23,15 +22,19 @@ public class HomeFragment extends Fragment {
     private TextView number;
     private TextView progress;
     public String divideErrorMsg = "0으로 나눌 수 없습니다.";
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                ViewModelProviders.of(this).get(HomeViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
-        number = (TextView) root.findViewById(R.id.textView1);
-        progress = (TextView) root.findViewById(R.id.textView2);
-        return root;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+
+        number = (TextView) rootView.findViewById(R.id.textView1);
+        progress = (TextView) rootView.findViewById(R.id.textView2);
+        return rootView;
+    }
+
     public void pressNumButton(View view) {
         String s = (String) ((Button) view).getText();
         if (this.number.getText().equals("0")||this.number.getText().equals(divideErrorMsg)) {
@@ -151,7 +154,6 @@ public class HomeFragment extends Fragment {
     }
     public void operate(String col, BigDecimal num, BigDecimal num2) {
         String result="";
-        BigDecimal chkPoint;
         if (col.equals("+")) {
             result = checkBigDecimal(num.add(num2));
         } else if (col.equals("-")) {
