@@ -14,7 +14,7 @@
     <fragment
         android:id="@+id/nav_engineering"
         android:name="com.example.test5.ui.engineering.EngineeringFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_engineering"
         tools:layout="@layout/fragment_engineer" />
 
     <fragment

@@ -49,10 +49,9 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
 
-
+        hf = new HomeFragment();
         FragmentManager mFragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-        hf = new HomeFragment();
         fragmentTransaction.replace(R.id.home,hf).commit();
     }
 
@@ -74,10 +73,7 @@ public class MainActivity extends AppCompatActivity {
     public void pressNumButton(View view) {
         hf.pressNumButton(view);
     }
-    public void pressOperButton(View view) {
-
-        hf.pressOperButton(view);
-    }
+    public void pressOperButton(View view) {hf.pressOperButton(view); }
     public void pressPointButton(View view) {
         hf.pressPointButton(view);
     }
