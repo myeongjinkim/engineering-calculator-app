@@ -63,28 +63,28 @@
                     android:id="@+id/button21"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressPercentButton"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
                     android:text="%" />
 
                 <Button
                     android:id="@+id/button22"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressSqrtButton"
+                    android:onClick="@{(view) -> fragment.pressSqrtButton(view)}"
                     android:text="루트x" />
 
                 <Button
                     android:id="@+id/button23"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressSquareButton"
+                    android:onClick="@{(view) -> fragment.pressSquareButton(view)}"
                     android:text="x^2" />
 
                 <Button
                     android:id="@+id/button24"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressDenominatorButton"
+                    android:onClick="@{(view) -> fragment.pressDenominatorButton(view)}"
                     android:text="1/x" />
             </TableRow>
 
@@ -97,28 +97,28 @@
                     android:id="@+id/button"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressRemoveButton"
+                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
                     android:text="CE" />
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressRemoveButton"
+                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
                     android:text="C" />
 
                 <Button
                     android:id="@+id/button3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressRemoveButton"
+                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
                     android:text="지우기" />
 
                 <Button
                     android:id="@+id/button4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressOperButton"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
                     android:text="/" />
             </TableRow>
 
@@ -138,21 +138,21 @@
                     android:id="@+id/button6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressNumButton"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="8" />
 
                 <Button
                     android:id="@+id/button7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressNumButton"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="9" />
 
                 <Button
                     android:id="@+id/button8"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressOperButton"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
                     android:text="*" />
             </TableRow>
 
@@ -165,28 +165,28 @@
                     android:id="@+id/button9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressNumButton"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="4" />
 
                 <Button
                     android:id="@+id/button10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressNumButton"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="5" />
 
                 <Button
                     android:id="@+id/button11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressNumButton"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="6" />
 
                 <Button
                     android:id="@+id/button12"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressOperButton"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
                     android:text="-" />
             </TableRow>
 
@@ -199,28 +199,28 @@
                     android:id="@+id/button13"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressNumButton"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="1" />
 
                 <Button
                     android:id="@+id/button14"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressNumButton"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="2" />
 
                 <Button
                     android:id="@+id/button15"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressNumButton"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="3" />
 
                 <Button
                     android:id="@+id/button16"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressOperButton"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
                     android:text="+" />
             </TableRow>
 
@@ -233,28 +233,28 @@
                     android:id="@+id/button17"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressSignButton"
+                    android:onClick="@{(view) -> fragment.pressSignButton(view)}"
                     android:text="+-" />
 
                 <Button
                     android:id="@+id/button18"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressNumButton"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="0" />
 
                 <Button
                     android:id="@+id/button19"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressPointButton"
+                    android:onClick="@{(view) -> fragment.pressPointButton(view)}"
                     android:text="." />
 
                 <Button
                     android:id="@+id/button20"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:onClick="pressColButton"
+                    android:onClick="@{(view) -> fragment.pressColButton(view)}"
                     android:text="=" />
             </TableRow>
 
