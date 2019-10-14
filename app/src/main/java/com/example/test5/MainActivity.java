@@ -52,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        hf = new HomeFragment();
+       /* hf = new HomeFragment();
         FragmentManager mFragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = mFragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.home,hf).commit();
+        fragmentTransaction.replace(R.id.home,hf).commit();*/
     }
 
     @Override
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void pressNumButton(View view) {
+    /*public void pressNumButton(View view) {
         hf.pressNumButton(view);
     }
     public void pressOperButton(View view) {hf.pressOperButton(view); }
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void pressDenominatorButton(View view) {
         hf.pressDenominatorButton(view);
-    }
+    }*/
 
 
 

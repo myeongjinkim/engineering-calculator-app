@@ -9,10 +9,13 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.test5.R;
+import com.example.test5.databinding.FragmentHomeBinding;
+
 import java.math.BigDecimal;
 
 public class HomeFragment extends Fragment{
@@ -21,6 +24,7 @@ public class HomeFragment extends Fragment{
     private TextView number;
     private TextView progress;
     public String divideErrorMsg = "0으로 나눌 수 없습니다.";
+    public FragmentHomeBinding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,9 +34,9 @@ public class HomeFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         number = (TextView) rootView.findViewById(R.id.textView1);
         progress = (TextView) rootView.findViewById(R.id.textView2);
-/*
-        FragmentHomeBinding binding = DataBindingUtil.bind(rootView);
-        binding.setFragment(this);*/
+
+        binding = DataBindingUtil.bind(rootView);
+        binding.setFragment(this);
         return rootView;
     }
 
