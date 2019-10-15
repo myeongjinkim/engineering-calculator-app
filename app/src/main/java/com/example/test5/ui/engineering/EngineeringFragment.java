@@ -15,6 +15,8 @@ import com.example.test5.databinding.FragmentEngineerBinding;
 
 import java.math.BigDecimal;
 
+import static java.lang.Math.PI;
+
 public class EngineeringFragment extends Fragment {
     private TextView number;
     private TextView progress;
@@ -230,35 +232,38 @@ public class EngineeringFragment extends Fragment {
         }
     }
     public void pressTanButton(View view) {
-        String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        String sNum2 = (String) this.number.getText();
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            BigDecimal num2 = new BigDecimal(Math.tan(Double.parseDouble(sNum2)/ 180.0 * PI));
+            String result = checkBigDecimal(num2);
+            this.number.setText(result);
         }
     }
     public void pressCosButton(View view) {
-        String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        String sNum2 = (String) this.number.getText();
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            BigDecimal num2 = new BigDecimal(Math.cos(Double.parseDouble(sNum2)/ 180.0 * PI));
+            String result = checkBigDecimal(num2);
+            this.number.setText(result);
         }
     }
     public void pressSinButton(View view) {
-        String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        String sNum2 = (String) this.number.getText();
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            BigDecimal num2 = new BigDecimal(Math.sin(Double.parseDouble(sNum2)/ 180.0 * PI));
+            String result = checkBigDecimal(num2);
+            this.number.setText(result);
         }
     }
     public void pressIndexButton(View view) {
-        String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        String s = "^";
+        String sNum2 = (String) this.number.getText();
+        if(this.number.getText().equals(divideErrorMsg)==false){
+            this.ColProcess.append(sNum2);
+            this.ColProcess.append(" " + s +" ");
+            this.progress.setText(this.ColProcess);
+            this.number.setText("0");
+            String text = this.ColProcess.toString();
         }
     }
 
@@ -280,13 +285,15 @@ public class EngineeringFragment extends Fragment {
             else{
                 result = divideErrorMsg;
             }
+        } else if(col.equals("^")){
+            result = checkBigDecimal(num.pow(num2.intValue()));
         }
-        BigDecimal Bresult = new BigDecimal(result);
+        BigDecimal BResult = new BigDecimal(result);
         this.number.setText(result);
         this.progress.setText("");
 
         System.out.println(result);
-        return Bresult;
+        return BResult;
     }
     public String checkBigDecimal(BigDecimal chkPoint){
         String result;

@@ -63,7 +63,13 @@
                     android:id="@+id/button1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressSquareButton(view)}"
                     android:text="x^2" />
 
@@ -71,7 +77,13 @@
                     android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressIndexButton(view)}"
                     android:text="x^y" />
 
@@ -79,7 +91,13 @@
                     android:id="@+id/button3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressSinButton(view)}"
                     android:text="sin" />
 
@@ -87,7 +105,13 @@
                     android:id="@+id/button4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressCosButton(view)}"
                     android:text="cos" />
 
@@ -95,7 +119,13 @@
                     android:id="@+id/button5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressTanButton(view)}"
                     android:text="tan" />
             </TableRow>
@@ -108,14 +138,26 @@
                     android:id="@+id/button6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressSqrtButton(view)}"
                     android:text="루트x" />
                 <Button
                     android:id="@+id/button7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.press10IndexButton(view)}"
                     android:text="10^x" />
 
@@ -123,7 +165,13 @@
                     android:id="@+id/button8"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressLogButton(view)}"
                     android:text="log" />
 
@@ -131,7 +179,13 @@
                     android:id="@+id/button9"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressExpButton(view)}"
                     android:text="Exp" />
 
@@ -139,7 +193,13 @@
                     android:id="@+id/button10"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressModButton(view)}"
                     android:text="Mod" />
             </TableRow>
@@ -152,14 +212,26 @@
                     android:id="@+id/button11"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressDenominatorButton(view)}"
                     android:text="1/x" />
                 <Button
                     android:id="@+id/button12"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
                     android:text="CE" />
 
@@ -167,7 +239,13 @@
                     android:id="@+id/button13"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
                     android:text="C" />
 
@@ -175,7 +253,13 @@
                     android:id="@+id/button14"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
                     android:text="지우기" />
 
@@ -183,7 +267,13 @@
                     android:id="@+id/button15"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressOperButton(view)}"
                     android:text="/" />
             </TableRow>
@@ -196,14 +286,27 @@
                     android:id="@+id/button16"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressPiButton(view)}"
                     android:text="파이" />
+
                 <Button
                     android:id="@+id/button17"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="7" />
 
@@ -211,7 +314,13 @@
                     android:id="@+id/button18"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="8" />
 
@@ -219,7 +328,13 @@
                     android:id="@+id/button19"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="9" />
 
@@ -227,7 +342,13 @@
                     android:id="@+id/button20"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressOperButton(view)}"
                     android:text="*" />
             </TableRow>
@@ -240,14 +361,26 @@
                     android:id="@+id/button21"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressFactorialButton(view)}"
                     android:text="n!" />
                 <Button
                     android:id="@+id/button22"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="4" />
 
@@ -255,7 +388,13 @@
                     android:id="@+id/button23"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="5" />
 
@@ -263,7 +402,13 @@
                     android:id="@+id/button24"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="6" />
 
@@ -271,7 +416,13 @@
                     android:id="@+id/button25"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressOperButton(view)}"
                     android:text="-" />
             </TableRow>
@@ -284,14 +435,26 @@
                     android:id="@+id/button26"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressSignButton(view)}"
                     android:text="+-" />
                 <Button
                     android:id="@+id/button27"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="1" />
 
@@ -299,7 +462,13 @@
                     android:id="@+id/button28"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="2" />
 
@@ -307,7 +476,13 @@
                     android:id="@+id/button29"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="3" />
 
@@ -315,7 +490,13 @@
                     android:id="@+id/button30"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressOperButton(view)}"
                     android:text="+" />
             </TableRow>
@@ -327,14 +508,26 @@
                     android:id="@+id/button31"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressLParenthesesButton(view)}"
                     android:text="(" />
                 <Button
                     android:id="@+id/button32"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressRParenthesesButton(view)}"
                     android:text=")" />
 
@@ -342,7 +535,13 @@
                     android:id="@+id/button33"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#F0F0F0"
                     android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="0" />
 
@@ -350,7 +549,13 @@
                     android:id="@+id/button34"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressPointButton(view)}"
                     android:text="." />
 
@@ -358,7 +563,13 @@
                     android:id="@+id/button35"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:background="#C8C8C8"
                     android:onClick="@{(view) -> fragment.pressColButton(view)}"
                     android:text="=" />
             </TableRow>
