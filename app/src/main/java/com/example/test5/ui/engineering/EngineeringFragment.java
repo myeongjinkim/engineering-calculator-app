@@ -163,6 +163,107 @@ public class EngineeringFragment extends Fragment {
             this.number.setText(sNum2);
         }
     }
+    public void pressLParenthesesButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+    public void pressRParenthesesButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+
+    public void pressFactorialButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+    public void pressPiButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+
+    public void pressModButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+    public void pressExpButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+    public void pressLogButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+    public void press10IndexButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+    public void pressTanButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+    public void pressCosButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+    public void pressSinButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+    public void pressIndexButton(View view) {
+        String s = (String) ((Button) view).getText();
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
+        } else {
+            this.number.setText(s);
+        }
+    }
+
+
+
     public BigDecimal operate( BigDecimal num, String col, BigDecimal num2) {
         String result="";
         if (col.equals("+")) {

@@ -64,7 +64,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressSquareButton(view)}"
                     android:text="x^2" />
 
                 <Button
@@ -72,15 +72,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressSquareButton(view)}"
-                    android:text="x^2" />
+                    android:onClick="@{(view) -> fragment.pressIndexButton(view)}"
+                    android:text="x^y" />
 
                 <Button
                     android:id="@+id/button3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressSinButton(view)}"
                     android:text="sin" />
 
                 <Button
@@ -88,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressCosButton(view)}"
                     android:text="cos" />
 
                 <Button
@@ -96,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressTanButton(view)}"
                     android:text="tan" />
             </TableRow>
 
@@ -116,7 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.press10IndexButton(view)}"
                     android:text="10^x" />
 
                 <Button
@@ -124,7 +124,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressLogButton(view)}"
                     android:text="log" />
 
                 <Button
@@ -132,7 +132,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressExpButton(view)}"
                     android:text="Exp" />
 
                 <Button
@@ -140,7 +140,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressModButton(view)}"
                     android:text="Mod" />
             </TableRow>
 
@@ -197,7 +197,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressPiButton(view)}"
                     android:text="파이" />
                 <Button
                     android:id="@+id/button17"
@@ -241,7 +241,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressFactorialButton(view)}"
                     android:text="n!" />
                 <Button
                     android:id="@+id/button22"
@@ -328,14 +328,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressLParenthesesButton(view)}"
                     android:text="(" />
                 <Button
                     android:id="@+id/button32"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressRParenthesesButton(view)}"
                     android:text=")" />
 
                 <Button
