@@ -60,44 +60,44 @@
                 android:layout_weight="1">
 
                 <Button
-                    android:id="@+id/button25"
+                    android:id="@+id/button1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
-                    android:text="%" />
+                    android:text="x^2" />
 
                 <Button
-                    android:id="@+id/button21"
+                    android:id="@+id/button2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
-                    android:text="%" />
+                    android:text="x^2" />
 
                 <Button
-                    android:id="@+id/button22"
+                    android:id="@+id/button3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressSqrtButton(view)}"
-                    android:text="루트x" />
+                    android:text="sin" />
 
                 <Button
-                    android:id="@+id/button23"
+                    android:id="@+id/button4"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressSquareButton(view)}"
-                    android:text="x^2" />
+                    android:text="cos" />
 
                 <Button
-                    android:id="@+id/button24"
+                    android:id="@+id/button5"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressDenominatorButton(view)}"
-                    android:text="1/x" />
+                    android:text="tan" />
             </TableRow>
 
             <TableRow
@@ -105,38 +105,82 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <Button
-                    android:id="@+id/button26"
+                    android:id="@+id/button6"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
-                    android:text="%" />
+                    android:text="루트x" />
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/button7"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
+                    android:text="10^x" />
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
+                    android:text="log" />
+
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
+                    android:text="Exp" />
+
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
+                    android:text="Mod" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/button11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:text="1/x" />
+                <Button
+                    android:id="@+id/button12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="CE" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/button13"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="C" />
 
                 <Button
-                    android:id="@+id/button3"
+                    android:id="@+id/button14"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
                     android:text="지우기" />
 
                 <Button
-                    android:id="@+id/button4"
+                    android:id="@+id/button15"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -149,14 +193,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <Button
-                    android:id="@+id/button27"
+                    android:id="@+id/button16"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
-                    android:text="%" />
+                    android:text="파이" />
                 <Button
-                    android:id="@+id/button5"
+                    android:id="@+id/button17"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -164,7 +208,7 @@
                     android:text="7" />
 
                 <Button
-                    android:id="@+id/button6"
+                    android:id="@+id/button18"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -172,7 +216,7 @@
                     android:text="8" />
 
                 <Button
-                    android:id="@+id/button7"
+                    android:id="@+id/button19"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -180,7 +224,7 @@
                     android:text="9" />
 
                 <Button
-                    android:id="@+id/button8"
+                    android:id="@+id/button20"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -193,14 +237,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <Button
-                    android:id="@+id/button28"
+                    android:id="@+id/button21"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
-                    android:text="%" />
+                    android:text="n!" />
                 <Button
-                    android:id="@+id/button9"
+                    android:id="@+id/button22"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -208,7 +252,7 @@
                     android:text="4" />
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/button23"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -216,7 +260,7 @@
                     android:text="5" />
 
                 <Button
-                    android:id="@+id/button11"
+                    android:id="@+id/button24"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -224,7 +268,7 @@
                     android:text="6" />
 
                 <Button
-                    android:id="@+id/button12"
+                    android:id="@+id/button25"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -237,22 +281,22 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1">
                 <Button
-                    android:id="@+id/button29"
+                    android:id="@+id/button26"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
-                    android:text="%" />
+                    android:text="+-" />
                 <Button
-                    android:id="@+id/button13"
+                    android:id="@+id/button27"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressSignButton(view)}"
                     android:text="1" />
 
                 <Button
-                    android:id="@+id/button14"
+                    android:id="@+id/button28"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -260,43 +304,42 @@
                     android:text="2" />
 
                 <Button
-                    android:id="@+id/button15"
+                    android:id="@+id/button29"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressPointButton(view)}"
                     android:text="3" />
 
-                <Button
-                    android:id="@+id/button16"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
-                    android:text="+" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
                 <Button
                     android:id="@+id/button30"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
-                    android:text="%" />
+                    android:onClick="@{(view) -> fragment.pressColButton(view)}"
+                    android:text="+" />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
                 <Button
-                    android:id="@+id/button17"
+                    android:id="@+id/button31"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:text="(" />
+                <Button
+                    android:id="@+id/button32"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:onClick="@{(view) -> fragment.pressSignButton(view)}"
-                    android:text="+-" />
+                    android:text=")" />
 
                 <Button
-                    android:id="@+id/button18"
+                    android:id="@+id/button33"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -304,7 +347,7 @@
                     android:text="0" />
 
                 <Button
-                    android:id="@+id/button19"
+                    android:id="@+id/button34"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -312,7 +355,7 @@
                     android:text="." />
 
                 <Button
-                    android:id="@+id/button20"
+                    android:id="@+id/button35"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
