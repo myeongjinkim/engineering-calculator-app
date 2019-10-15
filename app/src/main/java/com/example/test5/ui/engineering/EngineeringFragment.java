@@ -14,6 +14,8 @@ import com.example.test5.R;
 import com.example.test5.databinding.FragmentEngineerBinding;
 
 import java.math.BigDecimal;
+import java.util.Queue;
+import java.util.Stack;
 
 import static java.lang.Math.PI;
 
@@ -110,6 +112,11 @@ public class EngineeringFragment extends Fragment {
     public void pressColButton(View view) {
         String sNum2 = (String) this.number.getText();
         String text = this.ColProcess.toString();
+        //String result = BackMarkingMethod(text + " " +sNum2);
+        //result = BackMarkingMethodCol(result);
+       /* this.progress.setText(result);
+        this.number.setText("0");
+        this.ColProcess = new StringBuilder();*/
         if(text.equals("")==false){
             BigDecimal num2 = new BigDecimal(sNum2);
             String[] a = text.split(" ");
@@ -323,5 +330,88 @@ public class EngineeringFragment extends Fragment {
         else return n * Factorial(n-1);
     }
 
+    public static int priority(char ch) {
+        switch (ch) {
+            case '*':
+            case '/':
+                return 2;
+            case '+':
+            case '-':
+                return 1;
+            case '(':
+            case ')':
+                return 0;
+        }
+        return -1;
+    }
 
+    public String BackMarkingMethod(String free){
+        char[] s = free.toCharArray();
+        int len = s.length;
+        Stack<Character> stack = new Stack<Character>();
+        StringBuilder sb = new StringBuilder();
+
+        for (int i = 0; i < len; i++) {
+            int p = priority(s[i]);
+            char ch = s[i];
+            switch (ch) {
+                case '+':
+                case '-':
+                case '*':
+                case '/':
+                     while (!stack.isEmpty() && priority(stack.peek()) >= p) {
+                         sb.append(stack.pop());
+                     }
+                     stack.push(ch);
+                     break;
+                case '(':
+                    stack.push(ch);
+                    break;
+                case ')':
+                    while (!stack.isEmpty() && stack.peek() != '(') {
+                        sb.append(stack.pop());
+                    }
+                    stack.pop();
+                    break;
+                default:
+                    sb.append(ch+" ");
+            }
+        }
+        while (!stack.isEmpty()) {
+            sb.append(stack.pop());
+        }
+        return sb.toString();
+    }
+    public String BackMarkingMethodCol(String str) {
+        Stack<String> op = new Stack<String>();
+        String[] s = str.split(" ");
+        int N = s.length;
+        String a,b;
+
+        for(int i = 0 ; i <  N; ++ i)
+        {
+
+            if( s[i].equals("+") || s[i].equals("-") || s[i].equals("*")|| s[i].equals("-") ) {
+                b = op.pop();
+                a = op.pop();
+                if(s[i].equals("+")){
+                    System.out.println(a);
+                    System.out.println(b);
+                    System.out.println(Double.parseDouble(a)+Double.parseDouble(b));
+                    op.push(Double.toString(Double.parseDouble(a)+Double.parseDouble(b)));
+                }else if(s[i].equals("-")){
+                    op.push(Double.toString(Double.parseDouble(a)-Double.parseDouble(b)));
+                }else if(s[i].equals("*")){
+                    op.push(Double.toString(Double.parseDouble(a)*Double.parseDouble(b)));
+                }else if(s[i].equals("/")){
+                    op.push(Double.toString(Double.parseDouble(a)/Double.parseDouble(b)));
+                }
+            }else{
+                op.add(s[i]);
+            }
+        }
+
+        System.out.println(op.pop());
+        return op.pop();
+    }
 }
