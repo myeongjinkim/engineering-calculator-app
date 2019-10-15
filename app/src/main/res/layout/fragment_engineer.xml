@@ -1,284 +1,326 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.test5.ui.engineering.EngineeringFragment">
 
-    <TableLayout
+    <data>
+        <variable
+            name="fragment"
+            type="com.example.test5.ui.engineering.EngineeringFragment"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="63dp"
-        android:layout_marginRight="10dp"
-        android:stretchColumns="*">
+        android:id="@+id/engineering">
 
-        <TableRow
+        <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_margin="8dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="63dp"
+            android:layout_marginRight="10dp"
+            android:stretchColumns="*">
 
-            <TextView
-                android:id="@+id/textView2"
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_span="4"
-                android:gravity="right|bottom"
-                android:textSize="20sp" />
-        </TableRow>
+                android:layout_weight="1">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="2">
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_span="5"
+                    android:gravity="right|bottom"
+                    android:layout_weight="1"
+                    android:textSize="20sp" />
+            </TableRow>
 
-            <TextView
-                android:id="@+id/textView1"
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_span="4"
-                android:gravity="right|center_vertical"
-                android:textSize="30sp" />
-        </TableRow>
+                android:layout_weight="2">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+                <TextView
+                    android:id="@+id/textView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_span="5"
+                    android:gravity="right|center_vertical"
+                    android:layout_weight="1"
+                    android:text="0"
+                    android:textSize="30sp" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/button25"
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressPercentButton"
-                android:text="%" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
-            <Button
-                android:id="@+id/button26"
+                <Button
+                    android:id="@+id/button25"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:text="%" />
+
+                <Button
+                    android:id="@+id/button21"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:text="%" />
+
+                <Button
+                    android:id="@+id/button22"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressSqrtButton(view)}"
+                    android:text="루트x" />
+
+                <Button
+                    android:id="@+id/button23"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressSquareButton(view)}"
+                    android:text="x^2" />
+
+                <Button
+                    android:id="@+id/button24"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressDenominatorButton(view)}"
+                    android:text="1/x" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressSqrtButton"
-                android:text="루트x" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/button26"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:text="%" />
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
+                    android:text="CE" />
 
-            <Button
-                android:id="@+id/button27"
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
+                    android:text="C" />
+
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressRemoveButton(view)}"
+                    android:text="지우기" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
+                    android:text="/" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressSquareButton"
-                android:text="x^2" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/button27"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:text="%" />
+                <Button
+                    android:id="@+id/button5"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="7" />
 
-            <Button
-                android:id="@+id/button28"
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="8" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="9" />
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
+                    android:text="*" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressDenominatorButton"
-                android:text="1/x" />
-        </TableRow>
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/button28"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:text="%" />
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="4" />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+                <Button
+                    android:id="@+id/button10"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="5" />
 
-            <Button
-                android:id="@+id/button21"
+                <Button
+                    android:id="@+id/button11"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="6" />
+
+                <Button
+                    android:id="@+id/button12"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
+                    android:text="-" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressPercentButton"
-                android:text="%" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/button29"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:text="%" />
+                <Button
+                    android:id="@+id/button13"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="1" />
 
-            <Button
-                android:id="@+id/button22"
+                <Button
+                    android:id="@+id/button14"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="2" />
+
+                <Button
+                    android:id="@+id/button15"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="3" />
+
+                <Button
+                    android:id="@+id/button16"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
+                    android:text="+" />
+            </TableRow>
+
+            <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressSqrtButton"
-                android:text="루트x" />
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+                <Button
+                    android:id="@+id/button30"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPercentButton(view)}"
+                    android:text="%" />
+                <Button
+                    android:id="@+id/button17"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressSignButton(view)}"
+                    android:text="+-" />
 
-            <Button
-                android:id="@+id/button23"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressSquareButton"
-                android:text="x^2" />
+                <Button
+                    android:id="@+id/button18"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressNumButton(view)}"
+                    android:text="0" />
 
-            <Button
-                android:id="@+id/button24"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressDenominatorButton"
-                android:text="1/x" />
-        </TableRow>
+                <Button
+                    android:id="@+id/button19"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressPointButton(view)}"
+                    android:text="." />
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+                <Button
+                    android:id="@+id/button20"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="@{(view) -> fragment.pressColButton(view)}"
+                    android:text="=" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressRemoveButton"
-                android:text="CE" />
+        </TableLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressRemoveButton"
-                android:text="C" />
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressRemoveButton"
-                android:text="지우기" />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressOperButton"
-                android:text="/" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="7" />
-
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="8" />
-
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="9" />
-
-            <Button
-                android:id="@+id/button8"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressOperButton"
-                android:text="*" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/button9"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="4" />
-
-            <Button
-                android:id="@+id/button10"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="5" />
-
-            <Button
-                android:id="@+id/button11"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="6" />
-
-            <Button
-                android:id="@+id/button12"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressOperButton"
-                android:text="-" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/button13"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="1" />
-
-            <Button
-                android:id="@+id/button14"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="2" />
-
-            <Button
-                android:id="@+id/button15"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="3" />
-
-            <Button
-                android:id="@+id/button16"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressOperButton"
-                android:text="+" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-
-            <Button
-                android:id="@+id/button17"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressSignButton"
-                android:text="+-" />
-
-            <Button
-                android:id="@+id/button18"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressNumButton"
-                android:text="0" />
-
-            <Button
-                android:id="@+id/button19"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressPointButton"
-                android:text="." />
-
-            <Button
-                android:id="@+id/button20"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:onClick="pressColButton"
-                android:text="=" />
-        </TableRow>
-
-    </TableLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,13 +20,10 @@ import java.math.BigDecimal;
 
 public class HomeFragment extends Fragment{
 
-    private HomeViewModel homeViewModel;
     private TextView number;
     private TextView progress;
     public String divideErrorMsg = "0으로 나눌 수 없습니다.";
     StringBuilder ColProcess;
-    String result = "";
-    boolean NumCheck = true;
     public FragmentHomeBinding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -166,7 +163,7 @@ public class HomeFragment extends Fragment{
             String sNum2 = (String) this.number.getText();
             BigDecimal num2 = new BigDecimal(sNum2);
             BigDecimal one = new BigDecimal(1);
-            num2 = one.divide(num2, 14, BigDecimal.ROUND_HALF_UP);
+            num2 = one.divide(num2, 15, BigDecimal.ROUND_HALF_UP);
             sNum2 = checkBigDecimal(num2);
             this.number.setText(sNum2);
         }
