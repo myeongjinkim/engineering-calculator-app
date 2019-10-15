@@ -24,6 +24,9 @@ public class HomeFragment extends Fragment{
     private TextView number;
     private TextView progress;
     public String divideErrorMsg = "0으로 나눌 수 없습니다.";
+    StringBuilder ColProcess;
+    String result = "";
+    boolean NumCheck = true;
     public FragmentHomeBinding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,7 +37,7 @@ public class HomeFragment extends Fragment{
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         number = (TextView) rootView.findViewById(R.id.textView1);
         progress = (TextView) rootView.findViewById(R.id.textView2);
-
+        ColProcess = new StringBuilder();
         binding = DataBindingUtil.bind(rootView);
         binding.setFragment(this);
         return rootView;
@@ -42,24 +45,27 @@ public class HomeFragment extends Fragment{
 
     public void pressNumButton(View view) {
         String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals("0")||this.number.getText().equals(divideErrorMsg)) {
-            this.number.setText(s);
+        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+            this.number.setText(this.number.getText()+s);
         } else {
-            this.number.setText(this.number.getText() + s);
+            this.number.setText(s);
         }
     }
     public void pressOperButton(View view) {
         String s = (String) ((Button) view).getText();
-        if(this.progress.getText().equals("")==false) {
-            String sNum2 = (String) this.number.getText();
-            BigDecimal num2 = new BigDecimal(sNum2);
-            String text = (String) this.progress.getText();
-            String[] a = text.split(" ");
-            BigDecimal num = new BigDecimal(a[0]);
-            operate(a[1],num,num2);
+        String sNum2 = (String) this.number.getText();
+        if(this.number.getText().equals(divideErrorMsg)){
+
+        }else{
+            this.ColProcess.append(sNum2);
+            this.ColProcess.append(" " + s +" ");
+            this.progress.setText(this.ColProcess);
+            this.number.setText("0");
+            String text = this.ColProcess.toString();
+            System.out.println(text+" 계산식 ");
         }
-        this.progress.setText(this.number.getText() + " " + s);
-        this.number.setText("0");
+
+
     }
     public void pressPointButton(View view) {
         String num = (String)this.number.getText();
@@ -92,7 +98,8 @@ public class HomeFragment extends Fragment{
         String s = (String) ((Button) view).getText();
         if (s.equals("C")) {
             this.number.setText("0");
-            this.progress.setText("");
+            this.ColProcess = new StringBuilder();
+            this.progress.setText(ColProcess);
         } else if (s.equals("CE")) {
             this.number.setText("0");
         } else if (s.equals("지우기")) {
@@ -106,12 +113,18 @@ public class HomeFragment extends Fragment{
     }
     public void pressColButton(View view) {
         String sNum2 = (String) this.number.getText();
-        String text = (String) this.progress.getText();
+        String text = this.ColProcess.toString();
+        System.out.println(text+" 계산중 ");
         if(text.equals("")==false){
             BigDecimal num2 = new BigDecimal(sNum2);
             String[] a = text.split(" ");
-            BigDecimal num = new BigDecimal(a[0]);
-            operate(a[1],num,num2);
+           BigDecimal NResult = new BigDecimal(a[0]);
+            for(int n = 2 ; n < a.length ; n=n+2){
+                BigDecimal num = new BigDecimal(a[n]);
+                NResult = operate(NResult, a[n-1] ,num);
+            }
+            operate(NResult,a[a.length-1],num2);
+            this.ColProcess = new StringBuilder();
         }
     }
     public void pressPercentButton(View view) {
@@ -143,6 +156,7 @@ public class HomeFragment extends Fragment{
             String sNum2 = (String) this.number.getText();
             BigDecimal num2 = new BigDecimal(sNum2);
             num2 = num2.pow(2);
+            num2 = num2.setScale(14, BigDecimal.ROUND_HALF_UP);
             sNum2 = checkBigDecimal(num2);
             this.number.setText(sNum2);
         }
@@ -152,12 +166,12 @@ public class HomeFragment extends Fragment{
             String sNum2 = (String) this.number.getText();
             BigDecimal num2 = new BigDecimal(sNum2);
             BigDecimal one = new BigDecimal(1);
-            num2 = one.divide(num2);
+            num2 = one.divide(num2, 14, BigDecimal.ROUND_HALF_UP);
             sNum2 = checkBigDecimal(num2);
             this.number.setText(sNum2);
         }
     }
-    public void operate(String col, BigDecimal num, BigDecimal num2) {
+    public BigDecimal operate( BigDecimal num, String col, BigDecimal num2) {
         String result="";
         if (col.equals("+")) {
             result = checkBigDecimal(num.add(num2));
@@ -171,12 +185,15 @@ public class HomeFragment extends Fragment{
                 result = checkBigDecimal(num.divide(num2));
             }
             else{
-                result=divideErrorMsg;
-                System.out.println(1);
+                result = divideErrorMsg;
             }
         }
+        BigDecimal Bresult = new BigDecimal(result);
         this.number.setText(result);
         this.progress.setText("");
+
+        System.out.println(result);
+        return Bresult;
     }
     public String checkBigDecimal(BigDecimal chkPoint){
         String result;
