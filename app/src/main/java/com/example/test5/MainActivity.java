@@ -72,36 +72,4 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-
-    /*public void pressNumButton(View view) {
-        hf.pressNumButton(view);
-    }
-    public void pressOperButton(View view) {hf.pressOperButton(view); }
-    public void pressPointButton(View view) {
-        hf.pressPointButton(view);
-    }
-    public void pressSignButton(View view) {
-        hf.pressSignButton(view);
-    }
-    public void pressRemoveButton(View view) {
-        hf.pressRemoveButton(view);
-    }
-    public void pressColButton(View view) {
-        hf.pressColButton(view);
-    }
-    public void pressPercentButton(View view) {
-        hf.pressPercentButton(view);
-    }
-    public void pressSqrtButton(View view) {
-        hf.pressSqrtButton(view);
-    }
-    public void pressSquareButton(View view) {
-        hf.pressSquareButton(view);
-    }
-    public void pressDenominatorButton(View view) {
-        hf.pressDenominatorButton(view);
-    }*/
-
-
-
 }

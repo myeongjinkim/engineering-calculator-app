@@ -48,9 +48,7 @@ public class EngineeringFragment extends Fragment {
     public void pressOperButton(View view) {
         String s = (String) ((Button) view).getText();
         String sNum2 = (String) this.number.getText();
-        if(this.number.getText().equals(divideErrorMsg)){
-
-        }else{
+        if(this.number.getText().equals(divideErrorMsg)==false){
             this.ColProcess.append(sNum2);
             this.ColProcess.append(" " + s +" ");
             this.progress.setText(this.ColProcess);
@@ -99,8 +97,12 @@ public class EngineeringFragment extends Fragment {
         } else if (s.equals("지우기")) {
             String paste = "";
             String num = (String) this.number.getText();
-            for (int i = 0; i < (num.length()) - 1; i++) {
-                paste += num.charAt(i);
+            if(num.equals("0")){
+                for (int i = 0; i < (num.length()) - 1; i++) {
+                    paste += num.charAt(i);
+                }
+            }else{
+                paste = "0";
             }
             this.number.setText(paste);
         }
@@ -108,7 +110,6 @@ public class EngineeringFragment extends Fragment {
     public void pressColButton(View view) {
         String sNum2 = (String) this.number.getText();
         String text = this.ColProcess.toString();
-        System.out.println(text+" 계산중 ");
         if(text.equals("")==false){
             BigDecimal num2 = new BigDecimal(sNum2);
             String[] a = text.split(" ");
@@ -119,21 +120,6 @@ public class EngineeringFragment extends Fragment {
             }
             operate(NResult,a[a.length-1],num2);
             this.ColProcess = new StringBuilder();
-        }
-    }
-    public void pressPercentButton(View view) {
-
-        String text = (String) this.progress.getText();
-        String[] a = new String[2];
-        a = text.split(" ");
-        if (this.number.getText().equals(divideErrorMsg)==false) {
-            if (a.length==2&&(a[1].equals("*")==true||a[1].equals("/")==true)) {
-                String sNum2 = (String) this.number.getText();
-                BigDecimal num2 = new BigDecimal(sNum2);
-                BigDecimal num = new BigDecimal(100);
-                sNum2 = checkBigDecimal(num2.divide(num));
-                this.number.setText(sNum2);
-            }
         }
     }
     public void pressSqrtButton(View view) {
@@ -167,68 +153,85 @@ public class EngineeringFragment extends Fragment {
     }
     public void pressLParenthesesButton(View view) {
         String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        if(this.number.getText().equals(divideErrorMsg)==false){
+            this.ColProcess.append(" " + s +" ");
+            this.progress.setText(this.ColProcess);
         }
     }
     public void pressRParenthesesButton(View view) {
         String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        String sNum2 = (String) this.number.getText();
+        if(this.number.getText().equals(divideErrorMsg)==false){
+            this.ColProcess.append(sNum2);
+            this.ColProcess.append(" " + s +" ");
+            this.progress.setText(this.ColProcess);
         }
     }
 
     public void pressFactorialButton(View view) {
         String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+        String sNum2 = (String) this.number.getText();
+        if (this.number.getText().equals(divideErrorMsg)==false) {
             this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+            Double DNum = Double.parseDouble(sNum2);
+            int INum= DNum.intValue();
+            if(INum==DNum){
+                System.out.println("들어감");
+                INum = Factorial(INum);
+                this.number.setText(Integer.toString(INum));
+            }else {
+                this.number.setText("0");
+            }
         }
     }
     public void pressPiButton(View view) {
         String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            BigDecimal num = new BigDecimal(Double.toString(PI));
+            num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
+            String result = checkBigDecimal(num);
+            this.number.setText(result);
         }
     }
 
     public void pressModButton(View view) {
-        String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        String s = "%";
+        String sNum2 = (String) this.number.getText();
+        if(this.number.getText().equals(divideErrorMsg)==false){
+            this.ColProcess.append(sNum2);
+            this.ColProcess.append(" " + s +" ");
+            this.progress.setText(this.ColProcess);
+            this.number.setText("0");
         }
     }
     public void pressExpButton(View view) {
-        String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        String sNum2 = (String) this.number.getText();
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            BigDecimal num2 = new BigDecimal(sNum2);
+            BigDecimal num = new BigDecimal(Math.exp(num2.doubleValue()));
+            num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
+            String result = checkBigDecimal(num);
+            this.number.setText(result);
         }
     }
     public void pressLogButton(View view) {
-        String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        String sNum2 = (String) this.number.getText();
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            BigDecimal num2 = new BigDecimal(sNum2);
+            BigDecimal num = new BigDecimal(Math.log10(num2.doubleValue()));
+            num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
+            String result = checkBigDecimal(num);
+            this.number.setText(result);
         }
     }
     public void press10IndexButton(View view) {
-        String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
-            this.number.setText(this.number.getText()+s);
-        } else {
-            this.number.setText(s);
+        String sNum2 = (String) this.number.getText();
+        if (this.number.getText().equals(divideErrorMsg)==false) {
+            BigDecimal num2 = new BigDecimal(sNum2);
+            BigDecimal num = new BigDecimal(Math.pow(10, num2.doubleValue()));
+            num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
+            String result = checkBigDecimal(num);
+            this.number.setText(result);
         }
     }
     public void pressTanButton(View view) {
@@ -263,7 +266,6 @@ public class EngineeringFragment extends Fragment {
             this.ColProcess.append(" " + s +" ");
             this.progress.setText(this.ColProcess);
             this.number.setText("0");
-            String text = this.ColProcess.toString();
         }
     }
 
@@ -286,7 +288,13 @@ public class EngineeringFragment extends Fragment {
                 result = divideErrorMsg;
             }
         } else if(col.equals("^")){
-            result = checkBigDecimal(num.pow(num2.intValue()));
+            num = new BigDecimal(Math.pow(num.doubleValue(), num2.doubleValue()));
+            num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
+            result = checkBigDecimal(num);
+        } else if(col.equals("%")){
+            num = new BigDecimal(num.doubleValue() % num2.doubleValue());
+            num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
+            result = checkBigDecimal(num);
         }
         BigDecimal BResult = new BigDecimal(result);
         this.number.setText(result);
@@ -308,5 +316,12 @@ public class EngineeringFragment extends Fragment {
         }
         return  result;
     }
+
+    public static int Factorial(int n)
+    {
+        if(n==0) return 1;
+        else return n * Factorial(n-1);
+    }
+
 
 }

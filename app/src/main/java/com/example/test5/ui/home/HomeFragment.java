@@ -102,8 +102,12 @@ public class HomeFragment extends Fragment{
         } else if (s.equals("지우기")) {
             String paste = "";
             String num = (String) this.number.getText();
-            for (int i = 0; i < (num.length()) - 1; i++) {
-                paste += num.charAt(i);
+            if(num.equals("0")){
+                for (int i = 0; i < (num.length()) - 1; i++) {
+                    paste += num.charAt(i);
+                }
+            }else{
+                paste = "0";
             }
             this.number.setText(paste);
         }
