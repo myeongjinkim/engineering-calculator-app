@@ -112,12 +112,13 @@ public class EngineeringFragment extends Fragment {
     public void pressColButton(View view) {
         String sNum2 = (String) this.number.getText();
         String text = this.ColProcess.toString();
-        //String result = BackMarkingMethod(text + " " +sNum2);
-        //result = BackMarkingMethodCol(result);
-       /* this.progress.setText(result);
-        this.number.setText("0");
-        this.ColProcess = new StringBuilder();*/
-        if(text.equals("")==false){
+        String result = BackMarkingMethod(text + sNum2);
+        result = BackMarkingMethodCol(result);
+        this.progress.setText("");
+        this.number.setText(result);
+        this.ColProcess = new StringBuilder();
+
+        /*if(text.equals("")==false){
             BigDecimal num2 = new BigDecimal(sNum2);
             String[] a = text.split(" ");
             BigDecimal NResult = new BigDecimal(a[0]);
@@ -127,7 +128,7 @@ public class EngineeringFragment extends Fragment {
             }
             operate(NResult,a[a.length-1],num2);
             this.ColProcess = new StringBuilder();
-        }
+        }*/
     }
     public void pressSqrtButton(View view) {
         if (this.number.getText().equals(divideErrorMsg)==false) {
@@ -172,6 +173,7 @@ public class EngineeringFragment extends Fragment {
             this.ColProcess.append(sNum2);
             this.ColProcess.append(" " + s +" ");
             this.progress.setText(this.ColProcess);
+            this.number.setText("0");
         }
     }
 
@@ -330,88 +332,105 @@ public class EngineeringFragment extends Fragment {
         else return n * Factorial(n-1);
     }
 
-    public static int priority(char ch) {
-        switch (ch) {
-            case '*':
-            case '/':
+    public static int priority(String s) {
+        switch (s) {
+            case "*":
+            case "/":
                 return 2;
-            case '+':
-            case '-':
+            case "+":
+            case "-":
                 return 1;
-            case '(':
-            case ')':
+            case "(":
+            case ")":
                 return 0;
         }
         return -1;
     }
 
     public String BackMarkingMethod(String free){
-        char[] s = free.toCharArray();
+        String[] s = free.split(" ");
         int len = s.length;
-        Stack<Character> stack = new Stack<Character>();
+        Stack<String> stack = new Stack<String>();
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < len; i++) {
             int p = priority(s[i]);
-            char ch = s[i];
-            switch (ch) {
-                case '+':
-                case '-':
-                case '*':
-                case '/':
-                     while (!stack.isEmpty() && priority(stack.peek()) >= p) {
-                         sb.append(stack.pop());
-                     }
-                     stack.push(ch);
-                     break;
-                case '(':
-                    stack.push(ch);
+            String oper = s[i];
+            switch (oper) {
+                case "+":
+                case "-":
+                case "*":
+                case "/":
+                    while (!stack.isEmpty() && priority(stack.peek()) >= p) {
+                        sb.append(stack.pop()+" ");
+                        System.out.println(sb);
+                    }
+                    stack.push(oper);
                     break;
-                case ')':
-                    while (!stack.isEmpty() && stack.peek() != '(') {
-                        sb.append(stack.pop());
+                case "(":
+                    stack.push(oper);
+                    break;
+                case ")":
+                    while (!stack.isEmpty() && stack.peek().contentEquals("(") == false) {
+                        sb.append(stack.pop()+" ");
+                        System.out.println(sb);
                     }
                     stack.pop();
                     break;
                 default:
-                    sb.append(ch+" ");
+                    sb.append(oper+" ");
+                    System.out.println(sb);
             }
         }
         while (!stack.isEmpty()) {
-            sb.append(stack.pop());
+            sb.append(stack.pop()+" ");
+            System.out.println(sb);
         }
+        System.out.println(sb);
         return sb.toString();
     }
     public String BackMarkingMethodCol(String str) {
         Stack<String> op = new Stack<String>();
         String[] s = str.split(" ");
         int N = s.length;
-        String a,b;
+        String result = "";
 
         for(int i = 0 ; i <  N; ++ i)
         {
 
-            if( s[i].equals("+") || s[i].equals("-") || s[i].equals("*")|| s[i].equals("-") ) {
-                b = op.pop();
-                a = op.pop();
+            if( s[i].equals("+") || s[i].equals("-") || s[i].equals("*")|| s[i].equals("/") ) {
+                BigDecimal num2 = new BigDecimal(op.pop());
+                BigDecimal num = new BigDecimal(op.pop());
                 if(s[i].equals("+")){
-                    System.out.println(a);
-                    System.out.println(b);
-                    System.out.println(Double.parseDouble(a)+Double.parseDouble(b));
-                    op.push(Double.toString(Double.parseDouble(a)+Double.parseDouble(b)));
+
+                    result = checkBigDecimal(num.add(num2));
+
                 }else if(s[i].equals("-")){
-                    op.push(Double.toString(Double.parseDouble(a)-Double.parseDouble(b)));
+                    result = checkBigDecimal(num.subtract(num2));
                 }else if(s[i].equals("*")){
-                    op.push(Double.toString(Double.parseDouble(a)*Double.parseDouble(b)));
+                    result = checkBigDecimal(num.multiply(num2));
                 }else if(s[i].equals("/")){
-                    op.push(Double.toString(Double.parseDouble(a)/Double.parseDouble(b)));
+                    BigDecimal zero = new BigDecimal(0);
+                    if(num2.compareTo(zero)!=0){
+                        System.out.println(num+" "+num2+"나눔 들어감");
+                        result = checkBigDecimal(num.divide(num2));
+                    }
+                    else{
+                        return divideErrorMsg;
+                    }
                 }
+                op.push(result);
             }else{
+                System.out.println(s[i] +" 넣음 ");
                 op.add(s[i]);
             }
+
         }
 
-        System.out.println(op.pop());
+        // System.out.println(op.pop());
         return op.pop();
     }
+
+
+
 }
