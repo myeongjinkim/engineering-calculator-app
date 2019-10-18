@@ -24,6 +24,10 @@ public class EngineeringFragment extends Fragment {
     private TextView progress;
     public String divideErrorMsg = "0으로 나눌 수 없습니다.";
     StringBuilder ColProcess;
+    public Boolean NumClick = false;
+    public Boolean Parentheses = true;
+
+
     public FragmentEngineerBinding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,16 +45,23 @@ public class EngineeringFragment extends Fragment {
 
     public void pressNumButton(View view) {
         String s = (String) ((Button) view).getText();
-        if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
+        if(Parentheses==false){
+
+        }
+        else if (NumClick) {
             this.number.setText(this.number.getText()+s);
+            NumClick=true;
         } else {
             this.number.setText(s);
+            NumClick=true;
         }
     }
     public void pressOperButton(View view) {
         String s = (String) ((Button) view).getText();
         String sNum2 = (String) this.number.getText();
-        if(this.number.getText().equals(divideErrorMsg)==false){
+        if(NumClick){
+            Parentheses=true;
+            NumClick=false;
             this.ColProcess.append(sNum2);
             this.ColProcess.append(" " + s +" ");
             this.progress.setText(this.ColProcess);
@@ -91,20 +102,23 @@ public class EngineeringFragment extends Fragment {
     public void pressRemoveButton(View view) {
         String s = (String) ((Button) view).getText();
         if (s.equals("C")) {
+            NumClick = false;
             this.number.setText("0");
             this.ColProcess = new StringBuilder();
             this.progress.setText(ColProcess);
         } else if (s.equals("CE")) {
+            NumClick = false;
             this.number.setText("0");
         } else if (s.equals("지우기")) {
             String paste = "";
             String num = (String) this.number.getText();
-            if(num.equals("0")){
+            if(num.length()==1){
+                NumClick = false;
+                paste = "0";
+            }else{
                 for (int i = 0; i < (num.length()) - 1; i++) {
                     paste += num.charAt(i);
                 }
-            }else{
-                paste = "0";
             }
             this.number.setText(paste);
         }
@@ -116,6 +130,8 @@ public class EngineeringFragment extends Fragment {
         result = BackMarkingMethodCol(result);
         this.progress.setText("");
         this.number.setText(result);
+        Parentheses=true;
+        NumClick=false;
         this.ColProcess = new StringBuilder();
 
         /*if(text.equals("")==false){
@@ -161,7 +177,7 @@ public class EngineeringFragment extends Fragment {
     }
     public void pressLParenthesesButton(View view) {
         String s = (String) ((Button) view).getText();
-        if(this.number.getText().equals(divideErrorMsg)==false){
+        if(NumClick==false){
             this.ColProcess.append(" " + s +" ");
             this.progress.setText(this.ColProcess);
         }
@@ -170,10 +186,12 @@ public class EngineeringFragment extends Fragment {
         String s = (String) ((Button) view).getText();
         String sNum2 = (String) this.number.getText();
         if(this.number.getText().equals(divideErrorMsg)==false){
+            Parentheses=false;
             this.ColProcess.append(sNum2);
             this.ColProcess.append(" " + s +" ");
             this.progress.setText(this.ColProcess);
             this.number.setText("0");
+            NumClick=false;
         }
     }
 
@@ -190,6 +208,7 @@ public class EngineeringFragment extends Fragment {
                 this.number.setText(Integer.toString(INum));
             }else {
                 this.number.setText("0");
+                NumClick=false;
             }
         }
     }
@@ -211,6 +230,7 @@ public class EngineeringFragment extends Fragment {
             this.ColProcess.append(" " + s +" ");
             this.progress.setText(this.ColProcess);
             this.number.setText("0");
+            NumClick=false;
         }
     }
     public void pressExpButton(View view) {
@@ -275,6 +295,7 @@ public class EngineeringFragment extends Fragment {
             this.ColProcess.append(" " + s +" ");
             this.progress.setText(this.ColProcess);
             this.number.setText("0");
+            NumClick=false;
         }
     }
 
@@ -416,6 +437,7 @@ public class EngineeringFragment extends Fragment {
                         result = checkBigDecimal(num.divide(num2));
                     }
                     else{
+                        NumClick=false;
                         return divideErrorMsg;
                     }
                 }
