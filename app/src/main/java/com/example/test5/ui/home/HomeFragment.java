@@ -216,7 +216,7 @@ public class HomeFragment extends Fragment{
         } else if (col.equals("/")){
             BigDecimal zero = new BigDecimal(0);
             if(num2.compareTo(zero)!=0){
-                result = checkBigDecimal(num.divide(num2));
+                result = checkBigDecimal(num.divide(num2, 15, BigDecimal.ROUND_HALF_UP));
             }
             else{
                 result = divideErrorMsg;
