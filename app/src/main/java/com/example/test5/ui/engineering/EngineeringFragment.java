@@ -113,17 +113,19 @@ public class EngineeringFragment extends Fragment {
             NumClick = false;
             this.number.setText("0");
         } else if (s.equals("지우기")) {
-            String paste = "";
-            String num = (String) this.number.getText();
-            if(num.length()==1){
-                NumClick = false;
-                paste = "0";
-            }else{
-                for (int i = 0; i < (num.length()) - 1; i++) {
-                    paste += num.charAt(i);
+            if(this.number.getText().equals(divideErrorMsg)==false){
+                String paste = "";
+                String num = (String) this.number.getText();
+                if(num.length()==1){
+                    NumClick = false;
+                    paste = "0";
+                }else{
+                    for (int i = 0; i < (num.length()) - 1; i++) {
+                        paste += num.charAt(i);
+                    }
                 }
+                this.number.setText(paste);
             }
-            this.number.setText(paste);
         }
     }
     public void pressColButton(View view) {
