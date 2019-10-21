@@ -116,17 +116,20 @@ public class HomeFragment extends Fragment{
     public void pressColButton(View view) {
         String sNum2 = (String) this.number.getText();
         String text = this.ColProcess.toString();
+        text = text+sNum2;
         System.out.println(text+" 계산중 ");
         if(text.equals("")==false){
-            BigDecimal num2 = new BigDecimal(sNum2);
             String[] a = text.split(" ");
            BigDecimal NResult = new BigDecimal(a[0]);
-            for(int n = 2 ; n < a.length ; n=n+2){
+            for(int n = 2 ; n <= a.length ; n=n+2){
                 BigDecimal num = new BigDecimal(a[n]);
+                System.out.println(NResult+" "+ a[n-1]+" "+num);
                 NResult = operate(NResult, a[n-1] ,num);
             }
-            operate(NResult,a[a.length-1],num2);
             this.ColProcess = new StringBuilder();
+            text=checkBigDecimal(NResult);
+            this.number.setText(text);
+            this.progress.setText("");
         }
     }
     public void pressPercentButton(View view) {
@@ -223,8 +226,7 @@ public class HomeFragment extends Fragment{
             }
         }
         BigDecimal Bresult = new BigDecimal(result);
-        this.number.setText(result);
-        this.progress.setText("");
+
 
         System.out.println(result);
         return Bresult;
