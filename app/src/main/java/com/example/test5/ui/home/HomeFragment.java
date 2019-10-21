@@ -103,12 +103,12 @@ public class HomeFragment extends Fragment{
         } else if (s.equals("지우기")) {
             String paste = "";
             String num = (String) this.number.getText();
-            if(num.equals("0")){
+            if(num.length()==1){
+                paste = "0";
+            }else{
                 for (int i = 0; i < (num.length()) - 1; i++) {
                     paste += num.charAt(i);
                 }
-            }else{
-                paste = "0";
             }
             this.number.setText(paste);
         }
@@ -184,7 +184,7 @@ public class HomeFragment extends Fragment{
             String sNum2 = (String) this.number.getText();
             BigDecimal num2 = new BigDecimal(sNum2);
             BigDecimal one = new BigDecimal(1);
-            num2 = one.divide(num2, 15, BigDecimal.ROUND_HALF_UP);
+            num2 = one.divide(num2, 14, BigDecimal.ROUND_HALF_UP);
             sNum2 = checkBigDecimal(num2);
             for(int n=0;n < sNum2.length();n++){
                 if(sNum2.charAt(n)=='.'){
@@ -216,7 +216,7 @@ public class HomeFragment extends Fragment{
         } else if (col.equals("/")){
             BigDecimal zero = new BigDecimal(0);
             if(num2.compareTo(zero)!=0){
-                result = checkBigDecimal(num.divide(num2, 15, BigDecimal.ROUND_HALF_UP));
+                result = checkBigDecimal(num.divide(num2, 14, BigDecimal.ROUND_HALF_UP));
             }
             else{
                 result = divideErrorMsg;

@@ -183,7 +183,7 @@ public class EngineeringFragment extends Fragment {
             String sNum2 = (String) this.number.getText();
             BigDecimal num2 = new BigDecimal(sNum2);
             BigDecimal one = new BigDecimal(1);
-            num2 = one.divide(num2, 15, BigDecimal.ROUND_HALF_UP);
+            num2 = one.divide(num2, 14, BigDecimal.ROUND_HALF_UP);
             sNum2 = checkBigDecimal(num2);
             for(int n=0;n < sNum2.length();n++){
                 if(sNum2.charAt(n)=='.'){
@@ -331,40 +331,6 @@ public class EngineeringFragment extends Fragment {
         }
     }
 
-
-
-    public BigDecimal operate( BigDecimal num, String col, BigDecimal num2) {
-        String result="";
-        if (col.equals("+")) {
-            result = checkBigDecimal(num.add(num2));
-        } else if (col.equals("-")) {
-            result = checkBigDecimal(num.subtract(num2));
-        } else if (col.equals("*")) {
-            result = checkBigDecimal(num.multiply(num2));
-        } else if (col.equals("/")){
-            BigDecimal zero = new BigDecimal(0);
-            if(num2.compareTo(zero)!=0){
-                result = checkBigDecimal(num.divide(num2));
-            }
-            else{
-                result = divideErrorMsg;
-            }
-        } else if(col.equals("^")){
-            num = new BigDecimal(Math.pow(num.doubleValue(), num2.doubleValue()));
-            num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
-            result = checkBigDecimal(num);
-        } else if(col.equals("%")){
-            num = new BigDecimal(num.doubleValue() % num2.doubleValue());
-            num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
-            result = checkBigDecimal(num);
-        }
-        BigDecimal BResult = new BigDecimal(result);
-        this.number.setText(result);
-        this.progress.setText("");
-
-        System.out.println(result);
-        return BResult;
-    }
     public String checkBigDecimal(BigDecimal chkPoint){
         String result;
         int convInt;
@@ -488,7 +454,7 @@ public class EngineeringFragment extends Fragment {
                     BigDecimal zero = new BigDecimal(0);
                     if(num2.compareTo(zero)!=0){
                         System.out.println(num+" / "+num2+" ");
-                        result = checkBigDecimal(num.divide(num2, 15, BigDecimal.ROUND_HALF_UP));
+                        result = checkBigDecimal(num.divide(num2, 14, BigDecimal.ROUND_HALF_UP));
                         System.out.println(num+" / "+num2+" ");
                     }
                     else{
