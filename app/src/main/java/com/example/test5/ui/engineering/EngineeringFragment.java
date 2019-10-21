@@ -14,7 +14,6 @@ import com.example.test5.R;
 import com.example.test5.databinding.FragmentEngineerBinding;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -65,7 +64,7 @@ public class EngineeringFragment extends Fragment {
             Parentheses=true;
             NumClick=false;
             if(sNum.equals("") || sNum.charAt(sNum.length()-1)!=')'){
-                this.ColProcess.append(sNum2);
+                this.ColProcess.append(" " +sNum2);
             }
             this.ColProcess.append(" " + s);
             this.progress.setText(this.ColProcess);
@@ -208,7 +207,7 @@ public class EngineeringFragment extends Fragment {
     public void pressLParenthesesButton(View view) {
         String s = (String) ((Button) view).getText();
         if(NumClick==false){
-            this.ColProcess.append(" " + s +" ");
+            this.ColProcess.append(s +" ");
             this.progress.setText(this.ColProcess);
             RightParentheses++;
         }
@@ -261,17 +260,7 @@ public class EngineeringFragment extends Fragment {
         }
     }
 
-    public void pressModButton(View view) {
-        String s = "%";
-        String sNum2 = (String) this.number.getText();
-        if(this.number.getText().equals(divideErrorMsg)==false){
-            this.ColProcess.append(sNum2);
-            this.ColProcess.append(" " + s +" ");
-            this.progress.setText(this.ColProcess);
-            this.number.setText("0");
-            NumClick=false;
-        }
-    }
+
     public void pressExpButton(View view) {
         String sNum2 = (String) this.number.getText();
         if (this.number.getText().equals(divideErrorMsg)==false) {
@@ -401,11 +390,13 @@ public class EngineeringFragment extends Fragment {
 
     public static int priority(String s) {
         switch (s) {
+            case "^":
             case "*":
             case "/":
                 return 2;
             case "+":
             case "-":
+            case "Mod":
                 return 1;
             case "(":
             case ")":
@@ -428,6 +419,8 @@ public class EngineeringFragment extends Fragment {
                 case "-":
                 case "*":
                 case "/":
+                case "Mod":
+                case "^":
                     while (!stack.isEmpty() && priority(stack.peek()) >= p) {
                         sb.append(stack.pop()+" ");
                         System.out.println(sb);
@@ -449,6 +442,7 @@ public class EngineeringFragment extends Fragment {
                     System.out.println(sb);
             }
         }
+        System.out.println(sb+"전과정");
         while (!stack.isEmpty()) {
             sb.append(stack.pop()+" ");
             System.out.println(sb);
@@ -465,31 +459,45 @@ public class EngineeringFragment extends Fragment {
         for(int i = 0 ; i <  N; ++ i)
         {
 
-            if( s[i].equals("+") || s[i].equals("-") || s[i].equals("*")|| s[i].equals("/") ) {
+            if( s[i].equals("+") || s[i].equals("-") || s[i].equals("*")|| s[i].equals("/")|| s[i].equals("Mod")|| s[i].equals("^") ) {
                 BigDecimal num2 = new BigDecimal(op.pop());
                 BigDecimal num = new BigDecimal(op.pop());
-                if(s[i].equals("+")){
+                if(s[i].equals("^")){
+                    num = new BigDecimal(Math.pow(num.doubleValue(), num2.doubleValue()));
+                    num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
+                    result = checkBigDecimal(num);
+                    System.out.println(num+" ^ "+num2+" "+result);
+
+                }else if(s[i].equals("Mod")){
+                    System.out.println("%연산 "+num+" "+num2);
+                    num = new BigDecimal(num.doubleValue() % num2.doubleValue());
+                    num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
+                    result = checkBigDecimal(num);
+                    System.out.println(num+" mod "+num2+" "+result);
+                }else if(s[i].equals("+")){
 
                     result = checkBigDecimal(num.add(num2));
-
+                    System.out.println(num+" + "+num2+" "+result);
                 }else if(s[i].equals("-")){
                     result = checkBigDecimal(num.subtract(num2));
+                    System.out.println(num+" - "+num2+" "+result);
                 }else if(s[i].equals("*")){
                     result = checkBigDecimal(num.multiply(num2));
+                    System.out.println(num+" * "+num2+" "+result);
                 }else if(s[i].equals("/")){
                     BigDecimal zero = new BigDecimal(0);
                     if(num2.compareTo(zero)!=0){
-                        System.out.println(num+" "+num2+"나눔 들어감");
-                        result = checkBigDecimal(num.divide(num2));
+                        System.out.println(num+" / "+num2+" ");
+                        System.out.println(num+" / "+num2+" ");
                     }
                     else{
                         NumClick=false;
                         return divideErrorMsg;
                     }
+                    System.out.println(num+" / "+num2+" "+result);
                 }
                 op.push(result);
             }else{
-                System.out.println(s[i] +" 넣음 ");
                 op.add(s[i]);
             }
 

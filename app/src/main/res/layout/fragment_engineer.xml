@@ -200,7 +200,7 @@
                     android:layout_marginBottom="3sp"
                     android:layout_weight="1"
                     android:background="#C8C8C8"
-                    android:onClick="@{(view) -> fragment.pressModButton(view)}"
+                    android:onClick="@{(view) -> fragment.pressOperButton(view)}"
                     android:text="Mod" />
             </TableRow>
 
