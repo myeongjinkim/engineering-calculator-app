@@ -23,7 +23,7 @@ import static java.lang.Math.PI;
 public class EngineeringFragment extends Fragment {
     private TextView number;
     private TextView progress;
-    public String divideErrorMsg = "0으로 나눌 수 없습니다.";
+    public String divideErrorMsg = "입력이 잘못되었습니다.";
     StringBuilder ColProcess;
     public Boolean NumClick = false;
     public Boolean Parentheses = true;
@@ -60,11 +60,14 @@ public class EngineeringFragment extends Fragment {
     public void pressOperButton(View view) {
         String s = (String) ((Button) view).getText();
         String sNum2 = (String) this.number.getText();
-        if(NumClick){
+        String sNum = (String) this.progress.getText();
+        if(NumClick || Parentheses==false){
             Parentheses=true;
             NumClick=false;
-            this.ColProcess.append(sNum2);
-            this.ColProcess.append(" " + s +" ");
+            if(sNum.equals("") || sNum.charAt(sNum.length()-1)!=')'){
+                this.ColProcess.append(sNum2);
+            }
+            this.ColProcess.append(" " + s);
             this.progress.setText(this.ColProcess);
             this.number.setText("0");
             String text = this.ColProcess.toString();
@@ -128,8 +131,10 @@ public class EngineeringFragment extends Fragment {
         String sNum2 = (String) this.number.getText();
         String text = this.ColProcess.toString();
         if(RightParentheses==0){
-            String result = BackMarkingMethod(text + sNum2);
+            String result = BackMarkingMethod(text +" "+ sNum2);
+            System.out.println(result);
             result = BackMarkingMethodCol(result);
+            System.out.println(result);
             this.progress.setText("");
             this.number.setText(result);
             Parentheses=true;
@@ -211,10 +216,16 @@ public class EngineeringFragment extends Fragment {
     public void pressRParenthesesButton(View view) {
         String s = (String) ((Button) view).getText();
         String sNum2 = (String) this.number.getText();
-        if(this.number.getText().equals(divideErrorMsg)==false){
+        String sNum = (String) this.progress.getText();
+        if(this.number.getText().equals(divideErrorMsg)==false&&RightParentheses>0){
             Parentheses=false;
-            this.ColProcess.append(sNum2);
-            this.ColProcess.append(" " + s +" ");
+            try{
+                String st = String.valueOf(sNum.charAt(sNum.length()-1));
+                Integer.parseInt(st);
+            }catch(NumberFormatException e){
+                this.ColProcess.append(" " + sNum2);
+            }
+            this.ColProcess.append(" "+ s);
             this.progress.setText(this.ColProcess);
             this.number.setText("0");
             NumClick=false;
@@ -273,7 +284,7 @@ public class EngineeringFragment extends Fragment {
     }
     public void pressLogButton(View view) {
         String sNum2 = (String) this.number.getText();
-        if (this.number.getText().equals(divideErrorMsg)==false) {
+        if (this.number.getText().equals(divideErrorMsg)==false&& sNum2.equals(0)==false) {
             BigDecimal num2 = new BigDecimal(sNum2);
             BigDecimal num = new BigDecimal(Math.log10(num2.doubleValue()));
             num = num.setScale (14, BigDecimal.ROUND_HALF_UP);
@@ -318,9 +329,13 @@ public class EngineeringFragment extends Fragment {
     public void pressIndexButton(View view) {
         String s = "^";
         String sNum2 = (String) this.number.getText();
+        String sNum = (String) this.progress.getText();
         if(this.number.getText().equals(divideErrorMsg)==false){
-            this.ColProcess.append(sNum2);
-            this.ColProcess.append(" " + s +" ");
+            if(sNum.equals("")){
+                this.ColProcess.append(sNum2);
+            }
+
+            this.ColProcess.append(" " + s);
             this.progress.setText(this.ColProcess);
             this.number.setText("0");
             NumClick=false;
