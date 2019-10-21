@@ -27,7 +27,7 @@ public class EngineeringFragment extends Fragment {
     StringBuilder ColProcess;
     public Boolean NumClick = false;
     public Boolean Parentheses = true;
-
+    public int RightParentheses = 0;
 
     public FragmentEngineerBinding binding;
     @Override
@@ -127,25 +127,17 @@ public class EngineeringFragment extends Fragment {
     public void pressColButton(View view) {
         String sNum2 = (String) this.number.getText();
         String text = this.ColProcess.toString();
-        String result = BackMarkingMethod(text + sNum2);
-        result = BackMarkingMethodCol(result);
-        this.progress.setText("");
-        this.number.setText(result);
-        Parentheses=true;
-        NumClick=false;
-        this.ColProcess = new StringBuilder();
-
-        /*if(text.equals("")==false){
-            BigDecimal num2 = new BigDecimal(sNum2);
-            String[] a = text.split(" ");
-            BigDecimal NResult = new BigDecimal(a[0]);
-            for(int n = 2 ; n < a.length ; n=n+2){
-                BigDecimal num = new BigDecimal(a[n]);
-                NResult = operate(NResult, a[n-1] ,num);
-            }
-            operate(NResult,a[a.length-1],num2);
+        if(RightParentheses==0){
+            String result = BackMarkingMethod(text + sNum2);
+            result = BackMarkingMethodCol(result);
+            this.progress.setText("");
+            this.number.setText(result);
+            Parentheses=true;
+            NumClick=false;
             this.ColProcess = new StringBuilder();
-        }*/
+        }
+
+
     }
     public void pressSqrtButton(View view) {
         if (this.number.getText().equals(divideErrorMsg)==false) {
@@ -213,6 +205,7 @@ public class EngineeringFragment extends Fragment {
         if(NumClick==false){
             this.ColProcess.append(" " + s +" ");
             this.progress.setText(this.ColProcess);
+            RightParentheses++;
         }
     }
     public void pressRParenthesesButton(View view) {
@@ -225,6 +218,7 @@ public class EngineeringFragment extends Fragment {
             this.progress.setText(this.ColProcess);
             this.number.setText("0");
             NumClick=false;
+            RightParentheses--;
         }
     }
 
@@ -236,9 +230,10 @@ public class EngineeringFragment extends Fragment {
             Double DNum = Double.parseDouble(sNum2);
             int INum= DNum.intValue();
             if(INum==DNum){
-                System.out.println("들어감");
-                INum = Factorial(INum);
-                this.number.setText(Integer.toString(INum));
+                BigDecimal BNum = new BigDecimal(INum);
+                BNum = Factorial(BNum);
+                sNum2 = checkBigDecimal(BNum);
+                this.number.setText(sNum2);
             }else {
                 this.number.setText("0");
                 NumClick=false;
@@ -380,10 +375,13 @@ public class EngineeringFragment extends Fragment {
         return  result;
     }
 
-    public static int Factorial(int n)
+    public static BigDecimal Factorial(BigDecimal n)
     {
-        if(n==0) return 1;
-        else return n * Factorial(n-1);
+        if(n.intValue()== 1) {
+            return new BigDecimal(1);
+        }else {
+            return n.multiply(Factorial(n.subtract(new BigDecimal(1))));
+        }
     }
 
     public static int priority(String s) {
