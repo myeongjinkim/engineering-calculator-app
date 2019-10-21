@@ -17,6 +17,7 @@ import com.example.test5.R;
 import com.example.test5.databinding.FragmentHomeBinding;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class HomeFragment extends Fragment{
 
@@ -159,6 +160,22 @@ public class HomeFragment extends Fragment{
             num2 = num2.pow(2);
             num2 = num2.setScale(14, BigDecimal.ROUND_HALF_UP);
             sNum2 = checkBigDecimal(num2);
+            for(int n=0;n < sNum2.length();n++){
+                if(sNum2.charAt(n)=='.'){
+                    for(int k=n+1, num9=0, num0=0 ;k<sNum2.length();k++){
+                        if(sNum2.charAt(k)=='9'){
+                            num9++;
+                        }else if(sNum2.charAt(k)=='0'){
+                            num0++;
+                        }
+                        if((num9==k-n && num9>3 ) || (num0==k-n && num0>3) ){
+                            num2 = num2.setScale(0, BigDecimal.ROUND_HALF_UP);
+                            sNum2 = checkBigDecimal(num2);
+                            break;
+                        }
+                    }
+                }
+            }
             this.number.setText(sNum2);
         }
     }
@@ -169,6 +186,22 @@ public class HomeFragment extends Fragment{
             BigDecimal one = new BigDecimal(1);
             num2 = one.divide(num2, 15, BigDecimal.ROUND_HALF_UP);
             sNum2 = checkBigDecimal(num2);
+            for(int n=0;n < sNum2.length();n++){
+                if(sNum2.charAt(n)=='.'){
+                    for(int k=n+1, num9=0, num0=0 ;k<sNum2.length();k++){
+                        if(sNum2.charAt(k)=='9'){
+                            num9++;
+                        }else if(sNum2.charAt(k)=='0'){
+                            num0++;
+                        }
+                        if((num9==k-n && num9>3 ) || (num0==k-n && num0>3) ){
+                            num2 = num2.setScale(0, BigDecimal.ROUND_HALF_UP);
+                            sNum2 = checkBigDecimal(num2);
+                            break;
+                        }
+                    }
+                }
+            }
             this.number.setText(sNum2);
         }
     }
