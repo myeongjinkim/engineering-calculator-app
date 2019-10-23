@@ -32,8 +32,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_span="4"
-                    android:gravity="right|bottom"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:gravity="right|bottom"
                     android:textSize="20sp" />
             </TableRow>
 
@@ -47,8 +52,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_span="4"
-                    android:gravity="right|center_vertical"
+                    android:layout_margin="3sp"
+                    android:layout_marginLeft="3sp"
+                    android:layout_marginTop="3sp"
+                    android:layout_marginRight="3sp"
+                    android:layout_marginBottom="3sp"
                     android:layout_weight="1"
+                    android:gravity="right|center_vertical"
                     android:text="0"
                     android:textSize="30sp" />
             </TableRow>
