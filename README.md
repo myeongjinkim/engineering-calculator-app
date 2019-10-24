@@ -40,6 +40,11 @@ Can Engineering calculation as 'sin', 'cos', 'tan', 'N!', '파이', etc
 
 Follow the arithmetic precedence because the calculation uses postfix notation
 
+hw_1
+![hw_1](/uploads/809555b56d3999a708e4a3e6eb3dc4b3/hw_1.png)
+
+hw_2
+
 ![hw_2_일반_계산기](/uploads/49697eca355475d5b3d8e81f6f84832e/hw_2_일반_계산기.png)
 
 ![네비게이션](/uploads/4bd3c01d97e1351505e5bc3422632919/네비게이션.png)
