@@ -132,8 +132,13 @@ public class EngineeringFragment extends Fragment {
         String sNum2 = (String) this.number.getText();
         String text = this.ColProcess.toString();
         if(RightParentheses==0){
-            String result = BackMarkingMethod(text +" "+ sNum2);
-            System.out.println(result);
+            String result;
+            if(NumClick){
+                result = BackMarkingMethod(text +" "+ sNum2);
+            }else{
+                result = BackMarkingMethod(text);
+            }
+            System.out.println("계산식ㄱㄱㄱ "+result);
             result = BackMarkingMethodCol(result);
             System.out.println(result);
             this.progress.setText("");
@@ -209,7 +214,7 @@ public class EngineeringFragment extends Fragment {
     public void pressLParenthesesButton(View view) {
         String s = (String) ((Button) view).getText();
         if(NumClick==false){
-            this.ColProcess.append(s +" ");
+            this.ColProcess.append(" "+ s);
             this.progress.setText(this.ColProcess);
             RightParentheses++;
         }
