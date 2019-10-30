@@ -14,7 +14,6 @@ import com.example.test5.R;
 import com.example.test5.databinding.FragmentEngineerBinding;
 
 import java.math.BigDecimal;
-import java.util.Queue;
 import java.util.Stack;
 
 import static java.lang.Math.PI;
@@ -27,7 +26,6 @@ public class EngineeringFragment extends Fragment {
     public Boolean NumClick = false;
     public Boolean Parentheses = true;
     public int RightParentheses = 0;
-
     public FragmentEngineerBinding binding;
     @Override
     public void onCreate(Bundle savedInstanceState) {

@@ -1,4 +1,4 @@
-package com.example.test5.ui.home;
+package com.example.test5.ui.developer;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,28 +9,23 @@ import android.widget.TextView;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProviders;
 
 import com.example.test5.R;
-import com.example.test5.databinding.FragmentHomeBinding;
+import com.example.test5.databinding.FragmentDeveloperBinding;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
-public class HomeFragment extends Fragment{
+public class DeveloperFragment extends Fragment {
 
     private TextView number;
     private TextView progress;
     public String divideErrorMsg = "0으로 나눌 수 없습니다.";
     StringBuilder ColProcess;
-    public FragmentHomeBinding binding;
+    public FragmentDeveloperBinding binding;
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_developer, container, false);
         number = (TextView) rootView.findViewById(R.id.textView1);
         progress = (TextView) rootView.findViewById(R.id.textView2);
         ColProcess = new StringBuilder();
@@ -38,7 +33,6 @@ public class HomeFragment extends Fragment{
         binding.setFragment(this);
         return rootView;
     }
-
     public void pressNumButton(View view) {
         String s = (String) ((Button) view).getText();
         if (this.number.getText().equals(divideErrorMsg)==false && this.number.getText().equals("0")==false) {
@@ -120,7 +114,7 @@ public class HomeFragment extends Fragment{
         System.out.println(text+" 계산중 ");
         if(text.equals("")==false){
             String[] a = text.split(" ");
-           BigDecimal NResult = new BigDecimal(a[0]);
+            BigDecimal NResult = new BigDecimal(a[0]);
             for(int n = 2 ; n <= a.length ; n=n+2){
                 BigDecimal num = new BigDecimal(a[n]);
                 System.out.println(NResult+" "+ a[n-1]+" "+num);
@@ -244,6 +238,4 @@ public class HomeFragment extends Fragment{
         }
         return  result;
     }
-
-
 }
